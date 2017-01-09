@@ -1,3 +1,10 @@
-target/*
-!target/*.jar
+*.DS_Store
+bin
+target
+.classpath
+.project
+.settings
+src/main/webapp/META-INF
 .idea
+*.iml
+catalina.base_IS_UNDEFINED
