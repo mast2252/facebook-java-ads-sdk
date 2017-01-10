@@ -41,6 +41,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
 import com.facebook.ads.sdk.APIException.MalformedResponseException;
+import org.apache.commons.lang.StringUtils;
 
 /**
  * This class is auto-genereated.
@@ -112,7 +113,7 @@ public class Lead extends APINode {
   public static APINodeList<Lead> fetchByIds(List<String> ids, List<String> fields, APIContext context) throws APIException {
     return (APINodeList<Lead>)(
       new APIRequest<Lead>(context, "", "/", "GET", Lead.getParser())
-        .setParam("ids", String.join(",", ids))
+        .setParam("ids", StringUtils.join(ids, ","))
         .requestFields(fields)
         .execute()
     );

@@ -41,6 +41,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
 import com.facebook.ads.sdk.APIException.MalformedResponseException;
+import org.apache.commons.lang.StringUtils;
 
 /**
  * This class is auto-genereated.
@@ -98,7 +99,7 @@ public class ProductSet extends APINode {
   public static APINodeList<ProductSet> fetchByIds(List<String> ids, List<String> fields, APIContext context) throws APIException {
     return (APINodeList<ProductSet>)(
       new APIRequest<ProductSet>(context, "", "/", "GET", ProductSet.getParser())
-        .setParam("ids", String.join(",", ids))
+        .setParam("ids", StringUtils.join(ids, ","))
         .requestFields(fields)
         .execute()
     );

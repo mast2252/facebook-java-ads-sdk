@@ -23,24 +23,20 @@
 
 package com.facebook.ads.sdk;
 
-import java.io.File;
 import java.lang.reflect.Modifier;
-import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import com.google.gson.JsonObject;
-import com.google.gson.JsonArray;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
+import org.apache.commons.lang.StringUtils;
+import com.facebook.ads.sdk.APIException.MalformedResponseException;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-
-import com.facebook.ads.sdk.APIException.MalformedResponseException;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * This class is auto-genereated.
@@ -98,7 +94,7 @@ public class OffsitePixel extends APINode {
   public static APINodeList<OffsitePixel> fetchByIds(List<String> ids, List<String> fields, APIContext context) throws APIException {
     return (APINodeList<OffsitePixel>)(
       new APIRequest<OffsitePixel>(context, "", "/", "GET", OffsitePixel.getParser())
-        .setParam("ids", String.join(",", ids))
+        .setParam("ids", StringUtils.join(ids, ","))
         .requestFields(fields)
         .execute()
     );
